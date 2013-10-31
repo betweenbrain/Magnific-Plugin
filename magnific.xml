@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="2.5"
+         type="plugin"
+         group="system"
+         method="upgrade">
+	<name>System - Magnific Popup</name>
+	<author>Matt Thomas</author>
+	<creationDate>October 28, 2013</creationDate>
+	<copyright>2013 Matt Thomas</copyright>
+	<license>GPL 2.0</license>
+	<authorEmail>matt@betweenbrain.com</authorEmail>
+	<authorUrl>http://www.betweenbrain.com</authorUrl>
+	<version>0.1</version>
+	<description>A simple plugin to selectively redirect K2 views to menu items.</description>
+
+	<files>
+		<filename plugin="magnific">magnific.php</filename>
+		<folder>elements</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_magnific.ini</language>
+	</languages>
+
+	<params addpath="/plugins/system/elements">
+		<param name="menuItems"
+		       type="menuitems"
+		       default=""
+		       label="Select a menu item"
+		       description=""/>
+		<param name="source"
+		       type="text"
+		       default=""
+		       label="PLG_SYSTEM_MAGNIFIC_SOURCE_LABEL"
+		       description=""/>
+	</params>
+
+	<config>
+		<fields name="params" addpath="/plugins/system/elements" >
+			<fieldset name="basic">
+				<field name="menuItems"
+				       type="menuitems"
+				       default=""
+				       label="Select a menu item"
+				       description="Select a menu item"/>
+			</fieldset>
+		</fields>
+	</config>
+
+</install>
