@@ -28,6 +28,7 @@ class plgSystemMagnific extends JPlugin {
 		}
 
 		$activeItem = JSite::getMenu()->getActive()->id;
+		$delay      = $this->params->get('delay', 0) * 1000;
 		$menuItems  = $this->params->get('menuItems');
 		$popupType  = $this->params->get('popupType');
 		$source     = htmlspecialchars($this->params->get('source'));
@@ -38,18 +39,31 @@ class plgSystemMagnific extends JPlugin {
 
 		if (in_array($activeItem, $menuItems)) {
 
-			$js = <<<EOT
-(function ($) {
-	$().ready(function () {
-		$.magnificPopup.open({
-		  items: {
-		    src: '{$source}'
-		  },
-		  type: '{$popupType}'
-		});
-	});
-}(jQuery));
-EOT;
+			$js = '
+			(function ($) {
+				$().ready(function () {';
+
+			if ($delay != 0) {
+				$js .= '
+				setTimeout(function (){';
+			}
+
+			$js .= '
+			$.magnificPopup.open({
+			  items: {
+			    src: "' . $source . '"
+			  },
+			  type: "' . $popupType . '"
+			});';
+
+			if ($delay != 0) {
+				$js .= '
+				}, ' . $delay . ');';
+			}
+
+			$js .= '
+				});
+			}(jQuery));';
 
 			$this->doc->addScriptDeclaration($js);
 

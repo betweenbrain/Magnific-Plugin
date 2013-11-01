@@ -49,6 +49,11 @@
 			<option value="iframe">Iframe</option>
 			<option value="inline">Inline</option>
 		</param>
+		<param name="delay"
+		       type="text"
+		       default="0"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_DELAY_LABEL"
+		       description=""/>
 	</params>
 
 	<config>
