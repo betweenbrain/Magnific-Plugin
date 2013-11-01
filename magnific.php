@@ -65,6 +65,8 @@ class plgSystemMagnific extends JPlugin {
 				});
 			}(jQuery));';
 
+			$js = preg_replace(array('/\s{2,}+/', '/\t/', '/\n/'), '', $js);
+
 			$this->doc->addScriptDeclaration($js);
 
 			if (file_exists(JPATH_SITE . '/media/js/jquery.magnific-popup.min.js')) {
