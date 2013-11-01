@@ -18,14 +18,9 @@
 		<folder>elements</folder>
 	</files>
 
-	<media folder="media"
-	       destination="js">
-		<filename>media/jquery.magnific-popup.min.js</filename>
-	</media>
-
-	<media folder="media"
-	       destination="css">
-		<filename>media/magnific-popup.css</filename>
+	<media folder="media">
+		<folder>js</folder>
+		<folder>css</folder>
 	</media>
 
 	<languages>
