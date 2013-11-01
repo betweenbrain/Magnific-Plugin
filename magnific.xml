@@ -11,7 +11,7 @@
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
 	<version>0.1</version>
-	<description>A simple plugin to selectively redirect K2 views to menu items.</description>
+	<description>A simple plugin to automagically launch a Magnific Popup based lightbox on selected pages. For more information about Magnific Popup, please visit http://dimsemenov.com/plugins/magnific-popup/</description>
 
 	<files>
 		<filename plugin="magnific">magnific.php</filename>
