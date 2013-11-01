@@ -58,8 +58,22 @@
 				<field name="menuItems"
 				       type="menuitems"
 				       default=""
-				       label="Select a menu item"
-				       description="Select a menu item"/>
+				       label="PLG_SYSTEM_MAGNIFIC_POPUP_MENUITEMS_LABEL"
+				       description=""/>
+				<field name="source"
+				       type="text"
+				       default=""
+				       label="PLG_SYSTEM_MAGNIFIC_POPUP_SOURCE_LABEL"
+				       description=""/>
+				<field name="popupType"
+				       type="list"
+				       default="ajax"
+				       label="PLG_SYSTEM_MAGNIFIC_POPUP_MODE_LABEL"
+				       description="">
+					<option value="ajax">Ajax</option>
+					<option value="iframe">Iframe</option>
+					<option value="inline">Inline</option>
+				</field>
 			</fieldset>
 		</fields>
 	</config>
