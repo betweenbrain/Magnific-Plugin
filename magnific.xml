@@ -11,7 +11,9 @@
 	<authorEmail>matt@betweenbrain.com</authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
 	<version>0.1</version>
-	<description>A simple plugin to automagically launch a Magnific Popup based lightbox on selected pages. For more information about Magnific Popup, please visit http://dimsemenov.com/plugins/magnific-popup/</description>
+	<description>A simple plugin to automagically launch a Magnific Popup based lightbox on selected pages. For more
+		information about Magnific Popup, please visit http://dimsemenov.com/plugins/magnific-popup/
+	</description>
 
 	<files>
 		<filename plugin="magnific">magnific.php</filename>
@@ -31,13 +33,22 @@
 		<param name="menuItems"
 		       type="menuitems"
 		       default=""
-		       label="Select a menu item"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_MENUITEMS_LABEL"
 		       description=""/>
 		<param name="source"
 		       type="text"
 		       default=""
-		       label="PLG_SYSTEM_MAGNIFIC_SOURCE_LABEL"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_SOURCE_LABEL"
 		       description=""/>
+		<param name="popupType"
+		       type="list"
+		       default="ajax"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_MODE_LABEL"
+		       description="">
+			<option value="ajax">Ajax</option>
+			<option value="iframe">Iframe</option>
+			<option value="inline">Inline</option>
+		</param>
 	</params>
 
 	<config>

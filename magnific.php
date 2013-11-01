@@ -29,6 +29,7 @@ class plgSystemMagnific extends JPlugin {
 
 		$activeItem = JSite::getMenu()->getActive()->id;
 		$menuItems  = $this->params->get('menuItems');
+		$popupType  = $this->params->get('popupType');
 		$source     = htmlspecialchars($this->params->get('source'));
 
 		if (!is_array($menuItems)) {
@@ -44,7 +45,7 @@ class plgSystemMagnific extends JPlugin {
 		  items: {
 		    src: '{$source}'
 		  },
-		  type: 'ajax'
+		  type: '{$popupType}'
 		});
 	});
 }(jQuery));
@@ -59,7 +60,6 @@ EOT;
 			if (file_exists(JPATH_SITE . '/media/css/magnific-popup.css')) {
 				$this->doc->addStyleSheet(JURI::base(TRUE) . '/media/css/magnific-popup.css');
 			}
-
 		}
 	}
 }
