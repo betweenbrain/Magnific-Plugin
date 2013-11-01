@@ -18,6 +18,16 @@
 		<folder>elements</folder>
 	</files>
 
+	<media folder="media"
+	       destination="js">
+		<filename>media/jquery.magnific-popup.min.js</filename>
+	</media>
+
+	<media folder="media"
+	       destination="css">
+		<filename>media/magnific-popup.css</filename>
+	</media>
+
 	<languages>
 		<language tag="en-GB">en-GB.plg_system_magnific.ini</language>
 	</languages>
@@ -36,7 +46,8 @@
 	</params>
 
 	<config>
-		<fields name="params" addpath="/plugins/system/elements" >
+		<fields name="params"
+		        addpath="/plugins/system/elements">
 			<fieldset name="basic">
 				<field name="menuItems"
 				       type="menuitems"
