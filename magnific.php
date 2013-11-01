@@ -51,6 +51,15 @@ class plgSystemMagnific extends JPlugin {
 EOT;
 
 			$this->doc->addScriptDeclaration($js);
+
+			if (file_exists(JPATH_SITE . '/media/js/jquery.magnific-popup.min.js')) {
+				$this->doc->addScript(JURI::base(TRUE) . '/media/js/jquery.magnific-popup.min.js');
+			}
+
+			if (file_exists(JPATH_SITE . '/media/css/magnific-popup.css')) {
+				$this->doc->addStyleSheet(JURI::base(TRUE) . '/media/css/magnific-popup.css');
+			}
+
 		}
 	}
 }
