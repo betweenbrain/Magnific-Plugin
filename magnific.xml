@@ -66,13 +66,13 @@
 	<param name="publish_up"
 	       type="calendar"
 	       default=""
-	       label="Start Publishing"
+	       label="PLG_SYSTEM_MAGNIFIC_POPUP_START_PUB_LABEL"
 	       description=""
 	       format="%m-%d-%Y %M:%I:%S"/>
 	<param name="publish_down"
 	       type="calendar"
 	       default=""
-	       label="Finish Publishing"
+	       label="PLG_SYSTEM_MAGNIFIC_POPUP_STOP_PUB_LABEL"
 	       description=""
 	       format="%m-%d-%Y %M:%I:%S"/>
 	</params>
