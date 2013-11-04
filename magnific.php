@@ -91,8 +91,8 @@ class plgSystemMagnific extends JPlugin {
 		}
 
 		$now          = JFactory::getDate()->toUnix();
-		$publish_up   = JFactory::getDate($publish_up, $tzoffset)->toUnix();
-		$publish_down = JFactory::getDate($publish_down, $tzoffset)->toUnix();
+		$publish_up   = ($publish_up === '') ? 0 : JFactory::getDate($publish_up, $tzoffset)->toUnix();
+		$publish_down = ($publish_down === '') ? $now + 1 : JFactory::getDate($publish_down, $tzoffset)->toUnix();
 
 		// Execute plugin only if within published timeframe
 		if ($publish_up <= $now && $now < $publish_down) {
