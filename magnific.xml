@@ -43,29 +43,26 @@
 		<param name="popupType"
 		       type="list"
 		       default="ajax"
-		       label="PLG_SYSTEM_MAGNIFIC_POPUP_MODE_LABEL"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_TYPE_LABEL"
 		       description="">
 			<option value="ajax">Ajax</option>
 			<option value="iframe">Iframe</option>
 			<option value="inline">Inline</option>
+		</param>
+		<param name="popupMode"
+		       type="list"
+		       default="once"
+		       label="PLG_SYSTEM_MAGNIFIC_POPUP_MODE_LABEL"
+		       description="">
+			<option value="once">Once</option>
+			<option value="daily">Daily</option>
+			<option value="load">On Load</option>
 		</param>
 		<param name="delay"
 		       type="text"
 		       default="0"
 		       label="PLG_SYSTEM_MAGNIFIC_POPUP_DELAY_LABEL"
 		       description=""/>
-	<param name="publish_up"
-	       type="calendar"
-	       default=""
-	       label="Start Publishing"
-	       description=""
-	       format="%m-%d-%Y %M:%I:%S"/>
-	<param name="publish_down"
-	       type="calendar"
-	       default=""
-	       label="Finish Publishing"
-	       description=""
-	       format="%m-%d-%Y %M:%I:%S"/>
 	</params>
 
 	<config>

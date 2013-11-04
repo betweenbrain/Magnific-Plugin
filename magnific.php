@@ -28,10 +28,7 @@ class plgSystemMagnific extends JPlugin {
 		}
 
 		$activeItem = JSite::getMenu()->getActive()->id;
-		$delay      = $this->params->get('delay', 0) * 1000;
 		$menuItems  = $this->params->get('menuItems');
-		$popupType  = $this->params->get('popupType');
-		$source     = htmlspecialchars($this->params->get('source'));
 
 		if (!is_array($menuItems)) {
 			$menuItems = explode(' ', $menuItems);
@@ -39,43 +36,82 @@ class plgSystemMagnific extends JPlugin {
 
 		if (in_array($activeItem, $menuItems)) {
 
-			$js = '
-			(function ($) {
-				$().ready(function () {';
+			$popupMode    = $this->params->get('popupMode');
+			$cookieExpire = JRequest::getVar('magnificCookie', '', 'COOKIE');
 
-			if ($delay != 0) {
-				$js .= '
-				setTimeout(function (){';
+			switch ($popupMode) {
+				case 'once':
+
+					if (!$cookieExpire) {
+						setCookie('magnificCookie', time() * 60 * 60 * 24 * 365, 0);
+						$this->doPopup();
+					}
+
+					break;
+
+				case 'daily':
+					$now = JFactory::getDate()->toUnix();
+					$day = $now * 60 * 60 * 24;
+
+					if (!$cookieExpire || $now - $cookieExpire > $day) {
+						setCookie('magnificCookie', time() * 60 * 60 * 24, 0);
+						$this->doPopup();
+					}
+
+					break;
+
+				case 'load':
+
+					setCookie('magnificCookie', time(), 1);
+					$this->doPopup();
+
+					break;
 			}
+		}
+	}
 
+	private function doPopup() {
+
+		$delay     = $this->params->get('delay', 0) * 1000;
+		$popupType = $this->params->get('popupType');
+		$source    = htmlspecialchars($this->params->get('source'));
+
+		$js = '
+					(function ($) {
+						$().ready(function () {';
+
+		if ($delay != 0) {
 			$js .= '
-			$.magnificPopup.open({
-			  items: {
-			    src: "' . $source . '"
-			  },
-			  type: "' . $popupType . '"
-			});';
+						setTimeout(function (){';
+		}
 
-			if ($delay != 0) {
-				$js .= '
-				}, ' . $delay . ');';
-			}
+		$js .= '
+					$.magnificPopup.open({
+					  items: {
+					    src: "' . $source . '"
+					  },
+					  type: "' . $popupType . '"
+					});';
 
+		if ($delay != 0) {
 			$js .= '
-				});
-			}(jQuery));';
+						}, ' . $delay . ');';
+		}
 
-			$js = preg_replace(array('/\s{2,}+/', '/\t/', '/\n/'), '', $js);
+		$js .= '
+						});
+					}(jQuery));';
 
-			$this->doc->addScriptDeclaration($js);
+		$js = preg_replace(array('/\s{2,}+/', '/\t/', '/\n/'), '', $js);
 
-			if (file_exists(JPATH_SITE . '/media/js/jquery.magnific-popup.min.js')) {
-				$this->doc->addScript(JURI::base(TRUE) . '/media/js/jquery.magnific-popup.min.js');
-			}
+		$this->doc->addScriptDeclaration($js);
 
-			if (file_exists(JPATH_SITE . '/media/css/magnific-popup.css')) {
-				$this->doc->addStyleSheet(JURI::base(TRUE) . '/media/css/magnific-popup.css');
-			}
+		if (file_exists(JPATH_SITE . '/media/js/jquery.magnific-popup.min.js')) {
+			$this->doc->addScript(JURI::base(TRUE) . '/media/js/jquery.magnific-popup.min.js');
+		}
+
+		if (file_exists(JPATH_SITE . '/media/css/magnific-popup.css')) {
+			$this->doc->addStyleSheet(JURI::base(TRUE) . '/media/css/magnific-popup.css');
 		}
 	}
 }
