@@ -34,12 +34,12 @@
 		       type="menuitems"
 		       default=""
 		       label="PLG_SYSTEM_MAGNIFIC_POPUP_MENUITEMS_LABEL"
-		       description=""/>
+		       description="" />
 		<param name="source"
 		       type="text"
 		       default=""
 		       label="PLG_SYSTEM_MAGNIFIC_POPUP_SOURCE_LABEL"
-		       description=""/>
+		       description="" />
 		<param name="popupType"
 		       type="list"
 		       default="ajax"
@@ -62,19 +62,17 @@
 		       type="text"
 		       default="0"
 		       label="PLG_SYSTEM_MAGNIFIC_POPUP_DELAY_LABEL"
-		       description=""/>
+		       description="" />
 	<param name="publish_up"
 	       type="calendar"
 	       default=""
 	       label="PLG_SYSTEM_MAGNIFIC_POPUP_START_PUB_LABEL"
-	       description=""
-	       format="%m-%d-%Y %M:%I:%S"/>
+	       description="" />
 	<param name="publish_down"
 	       type="calendar"
 	       default=""
 	       label="PLG_SYSTEM_MAGNIFIC_POPUP_STOP_PUB_LABEL"
-	       description=""
-	       format="%m-%d-%Y %M:%I:%S"/>
+	       description="" />
 	</params>
 
 	<config>
@@ -85,12 +83,12 @@
 				       type="menuitems"
 				       default=""
 				       label="PLG_SYSTEM_MAGNIFIC_POPUP_MENUITEMS_LABEL"
-				       description=""/>
+				       description="" />
 				<field name="source"
 				       type="text"
 				       default=""
 				       label="PLG_SYSTEM_MAGNIFIC_POPUP_SOURCE_LABEL"
-				       description=""/>
+				       description="" />
 				<field name="popupType"
 				       type="list"
 				       default="ajax"
